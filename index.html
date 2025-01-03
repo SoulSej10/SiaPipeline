@@ -75,12 +75,25 @@
     }
 
     .auth-container {
+      display: flex;
       background-color: var(--card-background);
-      padding: 2rem;
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
+      overflow: hidden;
       width: 100%;
-      max-width: 400px;
+      max-width: 900px;
+    }
+
+    .auth-form {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    .auth-image {
+      flex: 1;
+      background-image: url('https://source.unsplash.com/random/800x600?coding');
+      background-size: cover;
+      background-position: center;
     }
 
     h2 {
@@ -168,6 +181,14 @@
 
     @media (max-width: 768px) {
       .auth-container {
+        flex-direction: column;
+      }
+
+      .auth-image {
+        height: 200px;
+      }
+
+      .auth-form {
         padding: 1.5rem;
       }
     }
@@ -184,16 +205,19 @@
   <main>
     <div class="container">
       <div class="auth-container">
-        <h2>Login / Register</h2>
-        <form id="authForm">
-          <input type="email" id="email" placeholder="Email" required>
-          <input type="password" id="password" placeholder="Password" required>
-          <input type="text" id="otp" placeholder="Enter OTP" style="display:none;" required>
-          <button type="button" id="loginBtn">Login</button>
-          <button type="button" id="registerBtn">Register</button>
-          <button type="button" id="verifyBtn" style="display:none;">Verify OTP</button>
-        </form>
-        <p id="status"></p>
+        <div class="auth-form">
+          <h2>Login / Register</h2>
+          <form id="authForm">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="text" id="otp" placeholder="Enter OTP" style="display:none;" required>
+            <button type="button" id="loginBtn">Login</button>
+            <button type="button" id="registerBtn">Register</button>
+            <button type="button" id="verifyBtn" style="display:none;">Verify OTP</button>
+          </form>
+          <p id="status"></p>
+        </div>
+        <div class="auth-image"></div>
       </div>
     </div>
   </main>
