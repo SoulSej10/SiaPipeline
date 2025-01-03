@@ -4,13 +4,110 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css">
-  <title>User Landing Page</title>
+  <title>DevDash - Web Development Dashboard</title>
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="container">
-    <h1>Welcome, <span id="userName"></span></h1>
-    <button id="logoutBtn">Logout</button>
+    <header>
+      <div class="logo">
+        <img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png" alt="DevDash Logo" id="logo">
+        <h1>DevDash</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#dashboard">Dashboard</a></li>
+          <li><a href="#pipelines">Pipelines</a></li>
+          <li><a href="#github">GitHub</a></li>
+          <li><a href="#agile">Agile</a></li>
+        </ul>
+      </nav>
+      <button id="logoutBtn">Logout</button>
+    </header>
+    <main>
+      <section id="greeting">
+        <h2>Welcome back, <span id="userName">User</span>!</h2>
+      </section>
+      <section id="dashboard">
+        <h2>Dashboard</h2>
+        <div class="dashboard-grid">
+          <div class="card">
+            <h3>Active Projects</h3>
+            <p id="activeProjects">5</p>
+          </div>
+          <div class="card">
+            <h3>Open Issues</h3>
+            <p id="openIssues">12</p>
+          </div>
+          <div class="card">
+            <h3>Recent Commits</h3>
+            <p id="recentCommits">34</p>
+          </div>
+          <div class="card">
+            <h3>Sprint Progress</h3>
+            <div class="progress-bar">
+              <div class="progress" style="width: 75%;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="pipelines">
+        <h2>CI/CD Pipelines</h2>
+        <div class="pipeline-list">
+          <div class="pipeline-item">
+            <span class="pipeline-name">Main Branch</span>
+            <span class="pipeline-status success">Passing</span>
+          </div>
+          <div class="pipeline-item">
+            <span class="pipeline-name">Develop Branch</span>
+            <span class="pipeline-status warning">In Progress</span>
+          </div>
+          <div class="pipeline-item">
+            <span class="pipeline-name">Feature Branch</span>
+            <span class="pipeline-status failure">Failed</span>
+          </div>
+        </div>
+      </section>
+      <section id="github">
+        <h2>GitHub Activity</h2>
+        <div class="github-activity">
+          <div class="activity-item">
+            <i class="fas fa-code-branch"></i>
+            <span>New pull request: "Add user authentication"</span>
+          </div>
+          <div class="activity-item">
+            <i class="fas fa-code-commit"></i>
+            <span>Commit: "Fix responsive layout issues"</span>
+          </div>
+          <div class="activity-item">
+            <i class="fas fa-code-merge"></i>
+            <span>Merged: "Update dependencies"</span>
+          </div>
+        </div>
+      </section>
+      <section id="agile">
+        <h2>Agile Board</h2>
+        <div class="agile-board">
+          <div class="agile-column">
+            <h3>To Do</h3>
+            <div class="agile-card">Implement user settings</div>
+            <div class="agile-card">Design new landing page</div>
+          </div>
+          <div class="agile-column">
+            <h3>In Progress</h3>
+            <div class="agile-card">Refactor API endpoints</div>
+            <div class="agile-card">Write unit tests</div>
+          </div>
+          <div class="agile-column">
+            <h3>Done</h3>
+            <div class="agile-card">Set up CI/CD pipeline</div>
+            <div class="agile-card">Create user dashboard</div>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
-  <script type="module" src="js/landing.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
+
