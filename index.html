@@ -41,6 +41,10 @@
       margin: 0 auto;
       padding: 0 20px;
       flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
     }
 
     header {
@@ -72,28 +76,16 @@
       justify-content: center;
       align-items: center;
       padding: 2rem 0;
+      flex: 1;
     }
 
     .auth-container {
-      display: flex;
       background-color: var(--card-background);
+      padding: 2rem;
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
-      overflow: hidden;
       width: 100%;
-      max-width: 900px;
-    }
-
-    .auth-form {
-      flex: 1;
-      padding: 2rem;
-    }
-
-    .auth-image {
-      flex: 1;
-      background-image: url('https://source.unsplash.com/random/800x600?coding');
-      background-size: cover;
-      background-position: center;
+      max-width: 400px;
     }
 
     h2 {
@@ -180,16 +172,19 @@
     }
 
     @media (max-width: 768px) {
-      .auth-container {
+      .container {
         flex-direction: column;
+        gap: 2rem;
       }
 
-      .auth-image {
-        height: 200px;
-      }
-
-      .auth-form {
+      .auth-container {
         padding: 1.5rem;
+        width: 100%;
+        max-width: 350px;
+      }
+
+      .image-container {
+        display: none;
       }
     }
   </style>
@@ -205,19 +200,21 @@
   <main>
     <div class="container">
       <div class="auth-container">
-        <div class="auth-form">
-          <h2>Login / Register</h2>
-          <form id="authForm">
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <input type="text" id="otp" placeholder="Enter OTP" style="display:none;" required>
-            <button type="button" id="loginBtn">Login</button>
-            <button type="button" id="registerBtn">Register</button>
-            <button type="button" id="verifyBtn" style="display:none;">Verify OTP</button>
-          </form>
-          <p id="status"></p>
-        </div>
-        <div class="auth-image"></div>
+        <h2>Login / Register</h2>
+        <form id="authForm">
+          <input type="email" id="email" placeholder="Email" required>
+          <input type="password" id="password" placeholder="Password" required>
+          <input type="text" id="otp" placeholder="Enter OTP" style="display:none;" required>
+          <button type="button" id="loginBtn">Login</button>
+          <button type="button" id="registerBtn">Register</button>
+          <button type="button" id="verifyBtn" style="display:none;">Verify OTP</button>
+        </form>
+        <p id="status"></p>
+      </div>
+
+      <!-- Added image container beside auth form -->
+      <div class="image-container">
+        <img src="https://via.placeholder.com/400x400" alt="Image" style="max-width: 100%; border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
       </div>
     </div>
   </main>
@@ -238,4 +235,3 @@
   <script type="module" src="js/auth.js"></script>
 </body>
 </html>
-
