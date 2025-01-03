@@ -8,14 +8,14 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 
 // Firebase config (make sure it's set up)
-const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
 const otpField = document.getElementById("otp");
 const statusText = document.getElementById("status");
 
 document.getElementById("loginBtn").addEventListener("click", async () => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+  const email = emailInput.value;
+  const password = passwordInput.value;
 
   try {
     await signInWithEmailAndPassword(auth, email, password);
@@ -27,20 +27,21 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
 });
 
 document.getElementById("registerBtn").addEventListener("click", async () => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+  const email = emailInput.value;
+  const password = passwordInput.value;
 
   try {
-    // Send verification email (OTP Link)
+    // Send OTP verification link
     const actionCodeSettings = {
       // URL you want to redirect back to. The domain (www.example.com) for this
       // can be your domain. The domain must be in the authorized domains list in Firebase.
-      url: 'https://www.example.com/finishSignUp?email=' + email, 
+      url: 'https://www.example.com/finishSignUp?email=' + email,
       handleCodeInApp: true,
     };
 
+    // Enable Email/Password Authentication for registration
     await sendSignInLinkToEmail(auth, email, actionCodeSettings);
-    window.localStorage.setItem('emailForSignIn', email);  // Store the email to use later
+    window.localStorage.setItem('emailForSignIn', email);  // Store email for later use
 
     otpField.style.display = "block"; // Show OTP field for user to enter the code
     document.getElementById("status").textContent = "OTP sent to your email!";
