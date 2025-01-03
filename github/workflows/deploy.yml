@@ -1,0 +1,31 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # This means the pipeline will run whenever code is pushed to the 'main' branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Runs on the latest version of Ubuntu
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3  # Step to checkout your repository's code
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16  # Make sure you're using a version compatible with your project
+
+      - name: Install Dependencies
+        run: npm install  # Installs your project dependencies
+
+      - name: Build Project
+        run: npm run build  # If your project needs to be built, this step will do it
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3  # This action deploys the build to GitHub Pages
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Uses GitHub's built-in token for deployment
+          publish_dir: ./build  # The directory where your build output is generated (you can change this depending on your project)
