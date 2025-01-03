@@ -1,7 +1,6 @@
 import { auth } from "./firebase.js";
 import {
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
   sendSignInLinkToEmail,
   isSignInWithEmailLink,
   signInWithEmailLink,
@@ -33,9 +32,8 @@ document.getElementById("registerBtn").addEventListener("click", async () => {
   try {
     // Send OTP verification link
     const actionCodeSettings = {
-      // URL you want to redirect back to. The domain (www.example.com) for this
-      // can be your domain. The domain must be in the authorized domains list in Firebase.
-      url: 'https://www.example.com/finishSignUp?email=' + email,
+      // Update this to use your actual GitHub Pages URL
+      url: 'https://soulsej10.github.io/SiaPipeline/finishSignUp?email=' + email,
       handleCodeInApp: true,
     };
 
