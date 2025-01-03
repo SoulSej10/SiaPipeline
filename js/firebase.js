@@ -1,8 +1,8 @@
 // Import Firebase libraries
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
-import { initializeApp } from "firebase/app";
+// import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
 // Your Firebase project's configuration
